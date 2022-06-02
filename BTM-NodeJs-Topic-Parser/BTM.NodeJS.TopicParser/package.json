@@ -1,0 +1,9 @@
+{
+  "name": "btm.node-js.topic-parser",
+  "version": "0.0.0",
+  "description": "BTM.NodeJS.TopicParser",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}

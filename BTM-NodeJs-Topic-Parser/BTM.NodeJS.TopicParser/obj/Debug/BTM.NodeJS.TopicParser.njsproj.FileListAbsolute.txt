@@ -1,0 +1,3 @@
+C:\Projects\github\Veretax\BTM\BTM-NodeJs-Topic-Parser\BTM-NodeJs-Topic-Parser\BTM.NodeJS.TopicParser\obj\Debug\BTM.NodeJS.TopicParser.njsproj.AssemblyReference.cache
+C:\Projects\github\Veretax\BTM\BTM-NodeJs-Topic-Parser\BTM-NodeJs-Topic-Parser\BTM.NodeJS.TopicParser\obj\Debug\BTM.NodeJS.TopicParser.njsproj.CoreCompileInputs.cache
+C:\Projects\github\Veretax\BTM\BTM-NodeJs-Topic-Parser\BTM-NodeJs-Topic-Parser\BTM.NodeJS.TopicParser\bin\Microsoft.NodejsTools.WebRole.dll
