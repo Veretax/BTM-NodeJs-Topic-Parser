@@ -1,6 +1,8 @@
 'use strict';
 
 const readline = require('readline');
+const prompt = require('prompt');
+const readlineSync = require('readline-sync');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -42,27 +44,43 @@ const startupPrompt =
         const areYouSureQuestion = "Are You Sure (Y/N)?";
         let confirmed = false;
 
-        while (!confirmed) {
 
-            rl.question(initialQuestion, function (url) {
-                targetUrl = url;
-            });
+while (!confirmed) {
+    var targetUrl = readlineSync.prompt(initialQuestion);
+
+    var locator = readlineSync.prompt(cssLocatorQuestion);
+
+    let targetPrompt = `You have chosen the URL ${targetUrl} and CSS Locator Class ${locator}`;
+
+    var toConfirm = readlineSync.prompt(targetPrompt);
+
+    if (toConfirm.toLowerCase() == 'y') {
+        confirmed = true;
+    }
+
+}
+
+        //while (!confirmed) {
+
+        //    rl.question(initialQuestion, function (url) {
+        //        targetUrl = url;
+        //    });
 
 
-            rl.question(cssLocatorQuestion, function (css) {
-                locator = css;
-            });
+        //    rl.question(cssLocatorQuestion, function (css) {
+        //        locator = css;
+        //    });
 
-            console.log(`You have chosen the URL ${targetUrl} and CSS Locator Class ${locator}`);
+        //    console.log(`You have chosen the URL ${targetUrl} and CSS Locator Class ${locator}`);
 
-            //rl.question(areYouSureQuestion,
-            //    function (confirm) {
-            //        if (confirm.toLowerCase() == "y") {
-            //            confirmed = true;
-            //        }
-            //    }
-            //);
-        }
+        //    //rl.question(areYouSureQuestion,
+        //    //    function (confirm) {
+        //    //        if (confirm.toLowerCase() == "y") {
+        //    //            confirmed = true;
+        //    //        }
+        //    //    }
+        //    //);
+        //}
 
 
         //rl.on("close", function() {
@@ -71,12 +89,10 @@ const startupPrompt =
         //});
 
 
-await sleep(50000)
-function sleep(ms) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-    });
-    }
+let seconds = 500000;
+var waitUntil = new Date(new Date().getTime() + seconds * 1000);
+while (waitUntil > new Date()) {n
+}
 /*})()*/
 
 //when done reading prompt exit program 
