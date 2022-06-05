@@ -11,7 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>617644c8-e92f-4aca-96c3-03db854bfd0e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.js</StartupFile>
+    <StartupFile>oldthis.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -28,7 +28,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app.js" />
+    <Content Include="forumscrapper - Copy.js" />
+    <Content Include="forumscrapper.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="nameexample.js" />
+    <Content Include="oldthis.js" />
     <Content Include="package.json" />
     <Content Include="prompt.js" />
     <Content Include="README.md" />
