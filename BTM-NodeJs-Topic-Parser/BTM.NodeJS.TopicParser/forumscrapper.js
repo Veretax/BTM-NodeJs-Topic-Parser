@@ -27,13 +27,13 @@ const parseDom = async (d, cssLocator) => {
     let postSelector = document.querySelector(cssLocator);
 
     //console.log(document)
-    console.log(postSelector);
+    //console.log(postSelector);
 
     return postSelector;
 }
 
-const parseBody = async (targetUrl, cssLocator) => {
-    let response = await fetch(targetUrl);
+async function parseBody(targetUrl, cssLocator, callback) {
+    let response =  await fetch(targetUrl);
     let body = await response.text();
 
     const $ = cheerio.load(body);
@@ -44,16 +44,44 @@ const parseBody = async (targetUrl, cssLocator) => {
         const titleNode = $(title);
         const titleText = titleNode.text();
 
-        console.log(`titleNode: ${title}`);
-        console.log(`titleText: ${titleText}`);
-
+        //console.log(`titleNode: ${title}`);
+        //console.log(`titleText: ${titleText}`);
+        //if (err) {
+        //    callback(err);
+        //    return;
+        //}
         titleList.push(titleText);
     });
 
+
+    // ####### STILL NOT PASSING THIS BACK CORRECTLY UGH
     console.log(titleList);
 
-    return titleList;
+    callback(null, titleList);
 }
+
+//const parseBody = async (targetUrl, cssLocator) => {
+//    let response = await fetch(targetUrl);
+//    let body = await response.text();
+
+//    const $ = cheerio.load(body);
+//    const titleList = [];
+
+//    // using CSS selector  
+//    $(cssLocator).each((i, title) => {
+//        const titleNode = $(title);
+//        const titleText = titleNode.text();
+
+//        console.log(`titleNode: ${title}`);
+//        console.log(`titleText: ${titleText}`);
+
+//        titleList.push(titleText);
+//    });
+
+//    console.log(titleList);
+
+//    return titleList;
+//}
 
 
 function getTargetInfo() {
@@ -71,7 +99,15 @@ function getTargetInfo() {
 
             console.log("preparing to get targetUrl");
 
-            let selection = parseBody(targetUrl, locator);
+            let selection = [];
+            parseBody(targetUrl, locator, (err, results) => {
+                if (err) {
+                    console.log(`ParseBody errored with ${err}`);
+                    return;
+                }
+                var out = { error: null, data: { results: results } };
+                selection.push(out.data.results);
+            });
 
             console.log(selection);
 
